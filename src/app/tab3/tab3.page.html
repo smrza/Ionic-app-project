@@ -41,7 +41,7 @@
             </ion-item>
             
             <ion-item>
-              <ion-range [(ngModel)]="slider" (ionChange)="changeValue()" min="2" max="8" color="secondary">
+              <ion-range [(ngModel)]="slider" (ionChange)="changeValue()" min="2" max="8" color="secondary" snaps step="1" >
                 <ion-label slot="start">2</ion-label>
                 <ion-label slot="end">8</ion-label>
               </ion-range>
