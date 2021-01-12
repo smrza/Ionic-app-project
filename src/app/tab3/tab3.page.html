@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      PMA API Calculator
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  
+
+    <div  class="aboutText">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aplikace je funkční kalkulačka pracujicí čistě za pomoci API. Jedná se o zdarma API bez nutnosti registrace. Omezený čas pro jeden výpočet je deset vteřin a denně je možno zavolat 10000 požadavků.
+      Kalkulačka umožňuje základní aritmetické operace, ale i goniometrické funkce, umocňování, faktoriál a další.
+      <br>
+      <br>
+    </div>
+    <div  class="aboutText2">
+      <a href="https://api.mathjs.org/">Odkaz na použitou API</a>
+      <br>
+      https://api.mathjs.org/
+      <br>
+      <br>
+     
+    </div>
+
+   
+    <div>
+
+
+
+     
+        <ion-card class="welcome-card">
+     
+            <ion-list>
+
+            <ion-item>
+              <ion-label>Use precision</ion-label>
+              <ion-toggle color="secondary" (ionChange)="precisionChange()"></ion-toggle>
+            </ion-item>
+            
+            <ion-item>
+              <ion-range [(ngModel)]="slider" (ionChange)="changeValue()" min="2" max="8" color="secondary">
+                <ion-label slot="start">2</ion-label>
+                <ion-label slot="end">8</ion-label>
+              </ion-range>
+            </ion-item>
+          </ion-list>
+
+        </ion-card>
+ 
+
+
+     
+
+    </div>
+
+  
+
+  
+  
+</ion-content>

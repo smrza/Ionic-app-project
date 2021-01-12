@@ -1,0 +1,283 @@
+<!--
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Calculation
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+-->
+
+<ion-content>
+  <ion-card class="welcome-card">
+    <ion-card-content>
+      <div class="entryTexts">
+
+        {{ global.myinput ? global.myinput: "Calculation input..." }}
+
+      </div>
+      
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="welcome-card">
+    <ion-card-content>
+
+      <div class="entryTexts">
+
+        {{ myoutput ? myoutput: "Result..." }}
+
+      </div>
+      
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="welcome-card">
+    <ion-card-content>
+
+      <div class="entryTexts">
+
+        M: {{ mymemory}}
+
+      </div>
+      
+    </ion-card-content>
+  </ion-card>
+
+
+  <div *ngIf="simpleKeyboard">
+  
+    
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3">
+            <ion-button color="danger" expand="block" class="ion-text-wrap" (click)="btnResetMemoryClicked()">mc</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="danger" expand="block" class="ion-text-wrap" (click)="btnAddMemoryClicked()">m+</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="danger" expand="block" class="ion-text-wrap" (click)="btnSubtractMemoryClicked()">m-</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="danger" expand="block" class="ion-text-wrap" (click)="btnRecallMemoryClicked()">mr</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3">
+            <ion-button expand="block" class="ion-text-wrap" (click)="btnPlusClicked()">+</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button expand="block" class="ion-text-wrap" (click)="btnMinusClicked()">-</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button expand="block" class="ion-text-wrap" (click)="btnMultiplyClicked()">x</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button expand="block" class="ion-text-wrap" (click)="btnDivideClicked()">÷</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  
+    
+  
+     
+  
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3">
+            <ion-button color="warning" expand="block" class="ion-text-wrap" (click)="btnNumber1Clicked()">1</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="warning" expand="block" class="ion-text-wrap" (click)="btnNumber2Clicked()">2</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="warning" expand="block" class="ion-text-wrap" (click)="btnNumber3Clicked()">3</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="warning" expand="block" class="ion-text-wrap" (click)="btnNumber4Clicked()">4</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3">
+            <ion-button color="warning" expand="block" class="ion-text-wrap" (click)="btnNumber5Clicked()">5</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="warning" expand="block" class="ion-text-wrap" (click)="btnNumber6Clicked()">6</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="warning" expand="block" class="ion-text-wrap" (click)="btnNumber7Clicked()">7</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="warning" expand="block" class="ion-text-wrap" (click)="btnNumber8Clicked()">8</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3">
+            <ion-button color="warning" expand="block" class="ion-text-wrap" (click)="btnNumber9Clicked()">9</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="warning" expand="block" class="ion-text-wrap" (click)="btnNumber0Clicked()">0</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="warning" expand="block" class="ion-text-wrap" (click)="btnDotClicked()">.</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="success" expand="block" class="ion-text-wrap" (click)="btnRemoveClicked()">⌫</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3">
+            <ion-toggle color="success" (ionChange)="hide()"></ion-toggle>
+           </ion-col>
+
+           <ion-col size="3">
+            <ion-button color="success" expand="block" class="ion-text-wrap" (click)="btnResetClicked()">C</ion-button>
+          </ion-col>
+         
+          <ion-col size="6">
+            <ion-button color="success" expand="block" class="ion-text-wrap" (click)="btnEqualsClicked()">=</ion-button>
+          </ion-col>
+
+          
+          
+        </ion-row>
+      </ion-grid>
+    
+  
+  
+  
+  </div>
+
+
+  
+  <div *ngIf="complexKeyboard">
+  
+  
+
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3">
+            <ion-button color="danger" expand="block" class="ion-text-wrap" (click)="btnResetMemoryClicked()">mc</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="danger" expand="block" class="ion-text-wrap" (click)="btnAddMemoryClicked()">m+</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="danger" expand="block" class="ion-text-wrap" (click)="btnSubtractMemoryClicked()">m-</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="danger" expand="block" class="ion-text-wrap" (click)="btnRecallMemoryClicked()">mr</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3">
+            <ion-button expand="block" class="ion-text-wrap" (click)="btnPlusClicked()">+</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button expand="block" class="ion-text-wrap" (click)="btnMinusClicked()">-</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button expand="block" class="ion-text-wrap" (click)="btnMultiplyClicked()">x</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button expand="block" class="ion-text-wrap" (click)="btnDivideClicked()">÷</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3">
+            <ion-button color="warning" expand="block" class="ion-text-wrap" (click)="btnLBracketClicked()">(</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="warning" expand="block" class="ion-text-wrap" (click)="btnRBracketClicked()">)</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="warning" expand="block" class="ion-text-wrap" (click)="btnPiClicked()">π</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="warning" expand="block" class="ion-text-wrap" (click)="btnEClicked()">e</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3">
+            <ion-button color="warning" expand="block" class="ion-text-wrap" (click)="btnSinClicked()">sin</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="warning" expand="block" class="ion-text-wrap" (click)="btnCosClicked()">cos</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="warning" expand="block" class="ion-text-wrap" (click)="btnTanClicked()">tan</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="warning" expand="block" class="ion-text-wrap" (click)="btnLogClicked()">log</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3">
+            <ion-button color="warning" expand="block" class="ion-text-wrap" (click)="btnSquareClicked()">x^y</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="warning" expand="block" class="ion-text-wrap" (click)="btnSqrtClicked()">√</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="warning" expand="block" class="ion-text-wrap" (click)="btnFactClicked()">!</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="warning" expand="block" class="ion-text-wrap" (click)="btnReverseSquareClicked()">x^-1</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3">
+            <ion-toggle color="success" checked (ionChange)="hide()"></ion-toggle>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="success" expand="block" class="ion-text-wrap" (click)="btnResetClicked()">C</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="success" expand="block" class="ion-text-wrap" (click)="btnRemoveClicked()">⌫</ion-button>
+          </ion-col>
+          <ion-col size="3">
+            <ion-button color="success" expand="block" class="ion-text-wrap" (click)="btnEqualsClicked()">=</ion-button>
+          </ion-col>
+         
+        </ion-row>
+      </ion-grid>
+
+
+
+  
+  
+  
+  </div>
+
+
+
+
+
+</ion-content>
+

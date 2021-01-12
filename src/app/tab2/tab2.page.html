@@ -1,0 +1,41 @@
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Press an entry to reuse its value.
+    </ion-title>
+  </ion-toolbar>
+  <div style="display: flex; justify-content: center">
+    <div style="align-self: center">Reuse steps</div>
+    <ion-toggle color="dark" checked (ionChange)="hide()"></ion-toggle>
+    <div style="align-self: center">Reuse result</div>
+  </div>
+</ion-header>
+
+
+<ion-content>
+
+  <div *ngIf="reuseResult">
+
+    <ion-card class="welcome-card">
+      <ion-list *ngFor="let record of historyArray; let i = index">
+          <ion-button expand="block" (click)="btnHistoryClicked(record.outputHistory)">{{ record.inputHistory }} = {{ record.outputHistory }}</ion-button>
+      </ion-list>
+    </ion-card>
+
+  </div>
+
+  <div *ngIf="reuseSteps">
+
+    <ion-card class="welcome-card">
+      <ion-list *ngFor="let record of historyArray; let i = index">
+          <ion-button expand="block" (click)="btnHistoryClicked(record.inputHistory)">{{ record.inputHistory }} = {{ record.outputHistory }}</ion-button>
+      </ion-list>
+    </ion-card>
+
+  </div>
+
+
+
+  
+</ion-content>
